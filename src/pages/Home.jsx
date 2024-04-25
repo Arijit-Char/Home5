@@ -12,7 +12,7 @@ import Testiminails from '../components/Testiminails';
 import Layout from '../layouts/Layout';
 import TypingAnimation from '../components/TypingAnimation';
 import ParticlesBackground from '../ParticlesBackground';
-
+import video from "../video/video.mp4";
 function Home() {
     const [activeLink, setActiveLink] = useState('home');
 
@@ -72,13 +72,9 @@ function Home() {
         <>
             <Layout about={filteredAbout}>
                 {/* Home Banner */}
-                <section
-                    id="home"
-                    className="home-banner-02 bg-cover bg-center bg-no-repeat"
-                    style={{ backgroundImage: `url(${filteredAbout.avatar.url})` }}
-                >
-                    <div id="particles-box" className="particles-box">
-                        <ParticlesBackground />
+                <section id="home" className="home-banner-02 video-bg">
+                    <div className="video-bg-container">
+                        <video src={video} autoPlay loop muted />
                     </div>
                     <div className="container">
                         <div className="row full-screen align-items-center p-100px-tb">
@@ -87,16 +83,16 @@ function Home() {
                                     <h6>Hello There!</h6>
                                     <h1>I'm {filteredAbout.name}</h1>
                                     <div className="nav social-icons justify-content-center">
-                                        <a href="#">
+                                        <a href={filteredSocialHandles[3].url}>
                                             <i className="fab fa-facebook-f" />
                                         </a>
-                                        <a href="#">
+                                        <a href={filteredSocialHandles[2].url}>    
                                             <i className="fab fa-twitter" />
                                         </a>
-                                        <a href="#">
+                                        <a href={filteredSocialHandles[0].url}>
                                             <i className="fab fa-instagram" />
                                         </a>
-                                        <a href="#">
+                                        <a href={filteredSocialHandles[1].url}>
                                             <i className="fab fa-linkedin-in" />
                                         </a>
                                         <a href="#">
@@ -114,8 +110,6 @@ function Home() {
                     </div>
                 </section>
 
-                {/* End Home Banner */}
-                {/* about us */}
                 <About about={filteredAbout} social={filteredSocialHandles} />
                 {/* end about us */}
                 {/* fun */}
