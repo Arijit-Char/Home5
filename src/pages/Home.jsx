@@ -12,7 +12,7 @@ import Testiminails from '../components/Testiminails';
 import Layout from '../layouts/Layout';
 import TypingAnimation from '../components/TypingAnimation';
 import ParticlesBackground from '../ParticlesBackground';
-import video from "../video/video.mp4";
+import video from '../video/video.mp4';
 function Home() {
     const [activeLink, setActiveLink] = useState('home');
 
@@ -70,7 +70,7 @@ function Home() {
 
     return (
         <>
-            <Layout about={filteredAbout}>
+            <Layout about={filteredAbout} social={filteredSocialHandles}>
                 {/* Home Banner */}
                 <section id="home" className="home-banner-02 video-bg">
                     <div className="video-bg-container">
@@ -86,7 +86,7 @@ function Home() {
                                         <a href={filteredSocialHandles[3].url}>
                                             <i className="fab fa-facebook-f" />
                                         </a>
-                                        <a href={filteredSocialHandles[2].url}>    
+                                        <a href={filteredSocialHandles[2].url}>
                                             <i className="fab fa-twitter" />
                                         </a>
                                         <a href={filteredSocialHandles[0].url}>
@@ -94,9 +94,6 @@ function Home() {
                                         </a>
                                         <a href={filteredSocialHandles[1].url}>
                                             <i className="fab fa-linkedin-in" />
-                                        </a>
-                                        <a href="#">
-                                            <i className="fab fa-pinterest" />
                                         </a>
                                     </div>
                                 </div>
@@ -113,16 +110,16 @@ function Home() {
                 <About about={filteredAbout} social={filteredSocialHandles} />
                 {/* end about us */}
                 {/* fun */}
-                <Skills skills={sortedFilteredSkills} />
+                <Skills skills={sortedFilteredSkills} about={filteredAbout} />
                 {/* End fun */}
                 {/* resume */}
-                <Services services={filteredServices} />
+                <Services services={filteredServices} about={filteredAbout} />
                 {/* End resume */}
                 {/* Work */}
                 <Work work={sortedFilteredProject} about={filteredAbout} />
                 {/* End work */}
                 {/* Testimonials */}
-                <Testiminails testimonials={filteredTestimonials} />
+                <Testiminails testimonials={filteredTestimonials} about={filteredAbout} />
 
                 {/* End Testimonials */}
                 {/* Blog */}
